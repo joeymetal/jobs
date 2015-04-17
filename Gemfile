@@ -59,6 +59,7 @@ gem 'simple_captcha2', require: 'simple_captcha'
 gem 'mail_form'
 gem 'simple_form'
 
+gem 'puma'
 gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
