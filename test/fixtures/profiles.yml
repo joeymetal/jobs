@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  skills: MyText
+  objectives: MyText
+  formations: MyText
+  professional_experiences: MyText
+  qualifications: MyText
+  additional_informations: MyText
+
+two:
+  skills: MyText
+  objectives: MyText
+  formations: MyText
+  professional_experiences: MyText
+  qualifications: MyText
+  additional_informations: MyText

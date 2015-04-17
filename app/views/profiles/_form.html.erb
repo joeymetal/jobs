@@ -1,0 +1,44 @@
+<%= form_for @profile, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :skills, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :skills, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :objectives, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :objectives, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :formations, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :formations, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :professional_experiences, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :professional_experiences, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :qualifications, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :qualifications, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :additional_informations, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :additional_informations, :class => 'text_area' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                profiles_path, :class => 'btn' %>
+  </div>
+<% end %>

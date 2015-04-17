@@ -1,0 +1,10 @@
+# encoding: UTF-8
+# pt-BR translations for Devise
+pt-BR:
+  simple_captcha:
+    placeholder: "Entre com o valor  da imagem"
+    label: "Entre com o código da caixa:"
+    refresh_button_text: "Atualizar"
+    message:
+      default: "O texto digitado não foi encontrado na imagem"
+      user: "O texto da imagem e o texto caixa são diferentes"

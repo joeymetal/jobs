@@ -1,0 +1,8 @@
+   <div class='navbar-form navbar-left' role='search'>
+      <%= form_tag result_path, :method => 'post' do %>
+      <div class="form-group">
+        <%= text_field_tag :query, params[:query], :class=>'form-control', :placeholder=>'Digite sua Pesquisa'  %>
+      </div>
+      <%= submit_tag "Pesquisar", :title => nil, :class=>'btn btn-default' %>
+      <% end %>
+   </div>

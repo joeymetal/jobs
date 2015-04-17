@@ -1,0 +1,5 @@
+# in config/locales/pt-BR.yml
+pt-BR:
+  unauthorized:
+    manage:
+      all: "Você não está autorizado à %{action} %{subject}."

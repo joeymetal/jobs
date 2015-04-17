@@ -1,0 +1,2 @@
+      invoke  active_record
+      remove    db/migrate/20150324224349_add_nickname_admin_to_users.rb

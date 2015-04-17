@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trading_name: MyString
+  fancy_name: MyString
+  cnpj: 1
+  commercial_activity: MyString
+
+two:
+  trading_name: MyString
+  fancy_name: MyString
+  cnpj: 1
+  commercial_activity: MyString

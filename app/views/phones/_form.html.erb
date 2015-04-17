@@ -1,0 +1,32 @@
+<%= form_for @phone, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :tel, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tel, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cel, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cel, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :others, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :others, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :observations, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :observations, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                phones_path, :class => 'btn' %>
+  </div>
+<% end %>
