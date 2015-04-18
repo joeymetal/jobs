@@ -21,7 +21,5 @@ module Jobs
     # config.i18n.default_locale = :de
      config.i18n.default_locale = 'pt-BR'
      config.serve_static_assets = true
-     config.assets.initialize_on_precompile = true # enabled due to i18n-js
-     I18n.available_locales = [:en, :"pt-BR"]
   end
 end

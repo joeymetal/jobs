@@ -117,28 +117,27 @@
             <ul class="nav nav-list">
               <li class="nav-header"><strong>Menu</strong></li>
               <hr>
-              <% if can? :assign_roles, current_user %>
-              <li><%= link_to "Para você", jobs_path %></li>
-              <li><%= link_to "Para sua empresa", '' %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-              <% end %>
               <% if can? :create, Job %>
-                <h5><%= link_to "Nova Opotunidade", new_job_path %></h5>
+                <li><%= link_to "Nova Opotunidade", new_job_path %></li>
               <% end %>
-              <% if can? :create, Customer %>
-                <h5><%= link_to "Informações pessoais", new_customer_path %></h3>
-              <% end %>
-              <% if can? :create, Applicant %>
-                <h5><%= link_to "Informações pessoais", new_applicant_path %></h3>
-              <% end %>
+                <% if current_user.try(:admin?) %>
+                    <li><%= link_to "Informações pessoais", new_customer_path %></li>
+                <% else %>
+                    <% if can? :create, Customer %>
+                      <li><%= link_to "Informações pessoais", new_customer_path %></li>
+                    <% end %>
+                    <% if can? :create, Applicant %>
+                      <li><%= link_to "Informações pessoais", new_applicant_path %></li>
+                    <% end %>
+                <% end %>
               <% if can? :create, Profile %>
-                <h5><%= link_to "Prefil e Habilidades", new_profile_path %></h5>
+                <li><%= link_to "Prefil e Habilidades", new_profile_path %></li>
               <% end %>
               <% if can? :create, Phone %>
-                <h5><%= link_to "Telefones", new_phone_path %></h5>
+                <li><%= link_to "Telefones", new_phone_path %></li>
               <% end %>
               <% if can? :create, Address %>
-                <h5><%= link_to "Endereço", new_address_path %></h5>
+                <li><%= link_to "Endereço", new_address_path %></li>
               <% end %>
             </ul>
           </div><!--/.well -->
@@ -157,9 +156,7 @@
 
               -->
         <% if user_signed_in? %>
-             </div>
-           <div class="col-xs-6 col-md-3 well">.col-xs-6 .col-md-4</div>
-         </div>
+            <%= render :partial => 'ads/ads1' %>
         <% end %>
     </div>
 <hr>

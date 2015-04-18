@@ -1,5 +1,4 @@
 Jobs::Application.routes.draw do 
-  
   root 'home#index'
   get 'annotations/search' => 'annotations#search'
   get '/search' => 'jobs#search'
