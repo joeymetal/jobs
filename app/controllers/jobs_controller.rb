@@ -65,13 +65,19 @@ class JobsController < ApplicationController
 
   def result
     @jobs = Job.page(params[:page]).per(6).search(params[:query])
-    respond_with (@jobs)
+    if @jobs.empty?
+      flash[:error] = 'Não foi encontrado nenhum resultado.'
+          redirect_to jobs_path
+    else 
+      respond_with (@jobs)
+    end
+    
   end
   
   def featured
      @jobs = Job.page(params[:page]).per(6).where({"featured" => true}) 
       if @jobs.empty?
-          flash[:error] = 'Não foi encontradas nenhuma vaga em destaque.'
+          flash[:error] = 'Não foram encontradas nenhuma vaga em destaque.'
           redirect_to jobs_path
         else
            respond_with(@jobs)

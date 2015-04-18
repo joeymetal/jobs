@@ -2,36 +2,37 @@
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
+      <%= f.text_field :title, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :vacancies, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :vacancies, :class => 'number_field' %>
+      <%= f.number_field :vacancies, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :salary, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :salary, :class => 'text_field' %>
+      <%= f.text_field :salary, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :expiration, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_field :expiration, :class => 'date_field' %>
+      <%= f.date_field :expiration, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_area_tag' %>
+      <%= f.text_area :description, :class => 'form-control' %>
     </div>
   </div>
+  <br>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                jobs_path, :class => 'btn' %>
+                jobs_path, :class => 'btn btn-default' %>
   </div>
 <% end %>

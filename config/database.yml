@@ -21,14 +21,19 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  host: ec2-107-22-166-233.compute-1.amazonaws.com
-  database: ddd81cr35pt23s
+  adapter: sqlite3
+  database: db/production.sqlite3
   pool: 5
-  username: axyvbjoxuswkyb
-  password: etiCZ2AzdVxQgF0VGpZqYsrJFQ
-  port:  5432
+  timeout: 5000
+
+  #adapter: postgresql
+  #encoding: unicode
+  #host: ec2-107-22-166-233.compute-1.amazonaws.com
+  #database: ddd81cr35pt23s
+  #pool: 5
+  #username: axyvbjoxuswkyb
+  #password: etiCZ2AzdVxQgF0VGpZqYsrJFQ
+ # port:  5432
 # PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:

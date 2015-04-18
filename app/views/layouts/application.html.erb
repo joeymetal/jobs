@@ -106,10 +106,61 @@
   </div>  <!--fim nav -->  
 </div>
 <!--Fim menu-->
-     <div class=" main"> 
+     <div class=" main">
+          <!--
+
+        -->
+  <% if user_signed_in? %>
+      <div class="container">
+        <div class="col-xs-6 col-md-3 well">
+          <div class="sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><strong>Menu</strong></li>
+              <hr>
+              <% if can? :assign_roles, current_user %>
+              <li><%= link_to "Para você", jobs_path %></li>
+              <li><%= link_to "Para sua empresa", '' %></li>
+              <li><%= link_to "Link3", "/path3"  %></li>
+              <% end %>
+              <% if can? :create, Job %>
+                <h5><%= link_to "Nova Opotunidade", new_job_path %></h5>
+              <% end %>
+              <% if can? :create, Customer %>
+                <h5><%= link_to "Informações pessoais", new_customer_path %></h3>
+              <% end %>
+              <% if can? :create, Applicant %>
+                <h5><%= link_to "Informações pessoais", new_applicant_path %></h3>
+              <% end %>
+              <% if can? :create, Profile %>
+                <h5><%= link_to "Prefil e Habilidades", new_profile_path %></h5>
+              <% end %>
+              <% if can? :create, Phone %>
+                <h5><%= link_to "Telefones", new_phone_path %></h5>
+              <% end %>
+              <% if can? :create, Address %>
+                <h5><%= link_to "Endereço", new_address_path %></h5>
+              <% end %>
+            </ul>
+          </div><!--/.well -->
+      </div>
+   <div class="col-xs-6 col-md-6">
+          <% end %>
+     
+        <!--/span == cols -->
+
+        <!--
+
+      --> 
           <%= bootstrap_flash %>
                 <%= yield %>
-        
+                <!-- 
+
+              -->
+        <% if user_signed_in? %>
+             </div>
+           <div class="col-xs-6 col-md-3 well">.col-xs-6 .col-md-4</div>
+         </div>
+        <% end %>
     </div>
 <hr>
 <!-- Fim content-->

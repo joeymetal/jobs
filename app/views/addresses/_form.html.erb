@@ -2,43 +2,43 @@
   <div class="control-group">
     <%= f.label :street, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :street, :class => 'text_field' %>
+      <%= f.text_field :street, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :neighborhood, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :neighborhood, :class => 'text_field' %>
+      <%= f.text_field :neighborhood, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :city, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :city, :class => 'text_field' %>
+      <%= f.text_field :city, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :state, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :state, :class => 'text_field' %>
+      <%= f.text_field :state, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :cep, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :cep, :class => 'text_field' %>
+      <%= f.text_field :cep, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :number, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :number, :class => 'text_field' %>
+      <%= f.text_field :number, :class => 'form-control' %>
     </div>
   </div>
-
+<br>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                addresses_path, :class => 'btn' %>
+                addresses_path, :class => 'btn btn-default' %>
   </div>
 <% end %>
