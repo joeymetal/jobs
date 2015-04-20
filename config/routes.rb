@@ -1,6 +1,5 @@
 Jobs::Application.routes.draw do 
   root 'home#index'
-  #get 'annotations/search' => 'annotations#search'
   get '/search' => 'jobs#search'
   match '/result' => 'jobs#result' , via: [:get, :post]
   get '/sobre_nos' => 'home#sobre_nos'

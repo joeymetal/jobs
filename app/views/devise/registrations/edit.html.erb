@@ -37,13 +37,26 @@
   <!-- in users/_form.html.erb -->
 
 
-   <div class="field">
+    <div class="control-group">
+      <%= f.label :super_admin, :class => 'control-label' %>
+      <div class="controls">
+        <%=
+          f.check_box :admin
+        %>
+      </div>
+    </div>
+  
+    <hr>
+
+   <div class="field control-group">
+    <%= f.label :regras_de_acesso, :class => 'control-label' %>
+    <div class="controls">
      <% for role in User::ROLES %>
       <%= radio_button_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"}%>
       <%= label_tag "user_roles_#{role}", role.humanize %><br />
     <% end %>
     <%= hidden_field_tag "user[roles][]", "" %>
-     
+     </div>
    </div>
    <% end %>
 

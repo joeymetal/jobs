@@ -115,8 +115,8 @@ class JobsController < ApplicationController
     end
     def jobs_checked
       if current_user.customer.checked?
-      flash[:error] = 'No momento sua conta não esta verificada.'
-      redirect_to jobs_path
+        flash[:error] = 'No momento sua conta não esta verificada.'
+        redirect_to jobs_path
       end
     end
     def job_params

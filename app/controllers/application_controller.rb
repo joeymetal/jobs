@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :username,:captcha, :captcha_key, roles: []) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me, :username,:captcha, :captcha_key) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :username, :captcha, :captcha_key, roles: []) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :username, :captcha, :captcha_key,:admin , roles: []) }
     #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
   end
 

@@ -1,7 +1,7 @@
 class ApplicantJobsController < ApplicationController
   #before_action :search_job, only: [:create]
   before_action :set_applicant_job, only: [:show, :edit, :update, :destroy, :search_job]
-  
+  before_action :profile_complete, only: [:create, :new]
   respond_to :html
 
   def index
@@ -67,6 +67,13 @@ class ApplicantJobsController < ApplicationController
           flash[:error] = 'Usuario ja cadastrado.'
           redirect_to jobs_path
        end
+    end
+
+    def profile_complete
+     if current_user.applicant.nil?
+        flash[:error] = 'Informações pessoais incompretas.'
+        redirect_to jobs_path
+     end
     end
 
     def applicant_job_params
