@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   #include SimpleCaptcha::ControllerHelpers
  # before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_perfile, only: [:new, :jobs_list]
 
   protect_from_forgery with: :exception
     rescue_from CanCan::AccessDenied do |exception|
@@ -27,6 +28,11 @@ class ApplicationController < ActionController::Base
     #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
   end
 
+  def check_perfile
+      if current_user.customer.nil?
+      flash[:error] = 'O seu perfil esta incompreto Prenchar todas as informações em Perfil da empresa.'
+      end
+  end
   # You can put the params you want to permit in the empty array.
   #def configure_sign_up_params
   #   devise_parameter_sanitizer.for(:sign_up) << :attribute

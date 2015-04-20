@@ -1,12 +1,19 @@
 Jobs::Application.routes.draw do 
   root 'home#index'
-  get 'annotations/search' => 'annotations#search'
+  #get 'annotations/search' => 'annotations#search'
   get '/search' => 'jobs#search'
   match '/result' => 'jobs#result' , via: [:get, :post]
   get '/sobre_nos' => 'home#sobre_nos'
   get '/destaques' => 'jobs#featured'
   get '/servicos' => 'home#service'
   get '/contato' => 'contacts#new'
+  get '/lista' => 'jobs#jobs_list'
+  get '/perfil' => 'profiles#new'
+  get '/phones' => 'phones#new'
+  get '/endereco' => 'addresses#new'
+  get '/informacao_pessoais' => 'applicants#new'
+  get '/perfil_empresa' => 'customers#new'
+
 
   resources :addresses
   resources :applicant_jobs

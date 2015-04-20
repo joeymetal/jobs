@@ -120,24 +120,27 @@
               <% if can? :create, Job %>
                 <li><%= link_to "Nova Opotunidade", new_job_path %></li>
               <% end %>
+              <% if can? :jobs_list, Job %>
+                <li><%= link_to "Minhas vagas postadas", lista_path %></li>
+              <% end %>
                 <% if current_user.try(:admin?) %>
-                    <li><%= link_to "Informações pessoais", new_customer_path %></li>
+                    <li><%= link_to "Perfil da empresa", perfil_empresa_path %></li>
                 <% else %>
                     <% if can? :create, Customer %>
-                      <li><%= link_to "Informações pessoais", new_customer_path %></li>
+                      <li><%= link_to "Perfil da empresa", perfil_empresa_path %></li>
                     <% end %>
                     <% if can? :create, Applicant %>
-                      <li><%= link_to "Informações pessoais", new_applicant_path %></li>
+                      <li><%= link_to "Informações pessoais", informacao_pessoais_path %></li>
                     <% end %>
                 <% end %>
               <% if can? :create, Profile %>
-                <li><%= link_to "Prefil e Habilidades", new_profile_path %></li>
+                <li><%= link_to "Prefil e Habilidades", perfil_path %></li>
               <% end %>
               <% if can? :create, Phone %>
-                <li><%= link_to "Telefones", new_phone_path %></li>
+                <li><%= link_to "Telefones", phones_path %></li>
               <% end %>
               <% if can? :create, Address %>
-                <li><%= link_to "Endereço", new_address_path %></li>
+                <li><%= link_to "Endereço", endereco_path %></li>
               <% end %>
             </ul>
           </div><!--/.well -->
@@ -156,7 +159,7 @@
 
               -->
         <% if user_signed_in? %>
-            <%= render :partial => 'ads/ads1' %>
+            <%= render :partial => 'ads/ads' %>
         <% end %>
     </div>
 <hr>

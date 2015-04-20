@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   #5 = moderator
   # 	#
   attr_accessor :login
+   # :on takes an array as well
 
   has_one :customer
 	has_one :applicant
@@ -38,21 +39,21 @@ class User < ActiveRecord::Base
 ####
 
 
-			# in models/user.rb
-def roles=(roles)
-  self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
-end
+              			# in models/user.rb
+              def roles=(roles)
+                self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
+              end
 
-def roles
-  ROLES.reject do |r|
-    ((roles_mask.to_i || 0) & 2**ROLES.index(r)).zero?
-  end
-end
+              def roles
+                ROLES.reject do |r|
+                  ((roles_mask.to_i || 0) & 2**ROLES.index(r)).zero?
+                end
+              end
 
-# in models/user.rb
-def is?(role)
-  roles.include?(role.to_s)
-end
+              # in models/user.rb
+              def is?(role)
+                roles.include?(role.to_s)
+              end
 
          	def self.find_for_database_authentication(warden_conditions)
 		      conditions = warden_conditions.dup

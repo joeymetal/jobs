@@ -27,10 +27,8 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details:
-    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    #@user = current_user
-                             
-                            user ||= User.new
+    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities 
+   user ||= User.new
                              if user.admin? #|| user.is? :admin
                                 can :manage, :all#, :id => user.id
                                 can :assign_roles, User if user.admin?
@@ -55,12 +53,12 @@ class Ability
                                 end
 
            elsif user.is? :customer
-                can [:destroy, :update] , Job, :customer_id => user.customer.id    # Foi foda cancan do capeta
+                can [:destroy, :update] , Job, :id => user.id #, :customer_id => user.customer.id    # Foi foda cancan do capeta
                 can :create, [Job, Address, Phone, Customer] if user.is? :customer
                 can [:update,:destroy, :read], [Customer, Phone, Address] do |j|     
                                    j.user == user
                                 end
-            
+                can :jobs_list, Job if user.is? :customer
             else
     
        
@@ -68,6 +66,7 @@ class Ability
                         can :read, [Job] if user.is? [:default]
                             cannot :manage, :all if user.is? :banned
                                 #can :read Job, if user.nil?
-     end
+              end
   end
 end
+

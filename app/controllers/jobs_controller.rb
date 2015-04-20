@@ -14,7 +14,7 @@ class JobsController < ApplicationController
   load_and_authorize_resource :except => [:show, :index, :featured], param_method: :job_params
   skip_authorize_resource :only => [:index, :featured, :job, :result]
   attr_accessor :user_id, :all
-
+  before_action :check_perfile, only: [:new, :jobs_list]
   respond_to :html
 
   def index
@@ -34,8 +34,8 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
-    respond_with(@job)
+      @job = Job.new
+      respond_with(@job)
   end
 
   def edit
@@ -84,6 +84,16 @@ class JobsController < ApplicationController
       end
   end
 
+  def jobs_list
+      @jobs = Job.page(params[:page]).per(6).where({ :customer_id => current_user.customer.id }) 
+      if @jobs.empty?
+          flash[:error] = 'Não foram encontradas nenhuma vaga em sua lista.'
+          redirect_to jobs_path
+        else
+           respond_with(@jobs)
+      end
+  end
+
   def job    
     @user = current_user
     @job = @user.applicant.build(job_params)
@@ -95,6 +105,13 @@ class JobsController < ApplicationController
 
     def set_job
       @job = Job.friendly.find(params[:id])
+    end
+
+    def check_perfile
+      if current_user.customer.nil?
+      flash[:error] = 'O seu perfil esta incompreto.'
+      redirect_to perfil_empresa_path
+      end
     end
 
     def job_params

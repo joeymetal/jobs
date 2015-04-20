@@ -26,9 +26,9 @@ class ApplicantsController < ApplicationController
 
   def create
      @user = current_user
-             @applicant = @user.build_applicant(applicant_params)
-              @applicant.save
-              respond_with(@applicant)
+      @applicant = @user.build_applicant(applicant_params)
+      @applicant.save
+      respond_with(@applicant)
      
   end
 
