@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :find_user_type, only: [:index, :new, :create]
+  before_action :check_perfile, only: [:new, :jobs_list]
   load_and_authorize_resource
   
   respond_to :html
@@ -62,6 +63,13 @@ class CustomersController < ApplicationController
               redirect_to edit_applicant_path(@user.applicant)
       end
     end
+
+    def check_perfile
+      if current_user.customer.try(nil?)
+      flash[:error] = 'O seu perfil esta incompreto Prenchar todas as informações em Perfil da empresa.'
+      end
+    end
+
     def customer_params
       params.require(:customer).permit(:trading_name, :fancy_name, :cnpj, :commercial_activity, :foundation, :checked)
     end

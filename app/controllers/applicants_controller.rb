@@ -2,7 +2,6 @@ class ApplicantsController < ApplicationController
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :find_user_type, only: [:new, :create]
-
   load_and_authorize_resource
   
   respond_to :html
@@ -64,7 +63,6 @@ class ApplicantsController < ApplicationController
               redirect_to edit_applicant_path(@user.applicant)
       end
     end
-
     def applicant_params
       params.require(:applicant).permit(:first_name, :last_name, :cpf, :rg, :birthday, :sex, :applicant_id, :job_id)
     end
