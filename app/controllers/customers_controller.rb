@@ -62,9 +62,7 @@ class CustomersController < ApplicationController
               redirect_to edit_applicant_path(@user.applicant)
       end
     end
-
-
     def customer_params
-      params.require(:customer).permit(:trading_name, :fancy_name, :cnpj, :commercial_activity, :foundation)
+      params.require(:customer).permit(:trading_name, :fancy_name, :cnpj, :commercial_activity, :foundation, :checked)
     end
 end

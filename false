@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20150420065321_add_checked_to_customers.rb

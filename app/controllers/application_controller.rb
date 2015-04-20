@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
  # before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :check_perfile, only: [:new, :jobs_list]
+  skip_before_action :check_perfile, if: :devise_controller?
 
   protect_from_forgery with: :exception
     rescue_from CanCan::AccessDenied do |exception|
@@ -29,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_perfile
-      if current_user.customer.nil?
+      if current_user.customer.try(nil?)
       flash[:error] = 'O seu perfil esta incompreto Prenchar todas as informações em Perfil da empresa.'
       end
   end

@@ -10,4 +10,8 @@ class HomeController < ApplicationController
   
   def sevice	
   end
+
+  def check_account
+  	
+  end
 end

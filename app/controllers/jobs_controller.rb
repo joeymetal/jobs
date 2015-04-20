@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   #before_action :set_job, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_user!
-  #before_action :authenticate_user!
+  before_action :jobs_checked, only: [:create, :new]
   #load_and_authorize_resource #:except => [:show, :index, :featured]
   
   #attr_accessor  :slug, :all
@@ -113,7 +113,12 @@ class JobsController < ApplicationController
       redirect_to perfil_empresa_path
       end
     end
-
+    def jobs_checked
+      if current_user.customer.checked?
+      flash[:error] = 'No momento sua conta não esta verificada.'
+      redirect_to jobs_path
+      end
+    end
     def job_params
       params.require(:job).permit(:title, :vacancies, :salary, :expiration, :description, :current_user, :featured, :slug,:customer_id, :applicant_id, :jod_id)
     end

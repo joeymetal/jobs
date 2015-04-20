@@ -29,6 +29,16 @@
       <%= f.date_field :foundation, :class => 'form-control' %>
     </div>
   </div>
+  <%if can? :assign_roles, @user %>
+  <div class="control-group">
+    <%= f.label :validado, :class => 'control-label' %>
+    <div class="controls">
+      <%=
+        f.check_box :checked
+      %>
+    </div>
+  </div>
+  <% end %>
   <br>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

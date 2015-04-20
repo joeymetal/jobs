@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415040443) do
+ActiveRecord::Schema.define(version: 20150420065321) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150415040443) do
     t.integer  "user_id"
     t.date     "foundation"
     t.string   "slug"
+    t.boolean  "checked",             default: false
   end
 
   add_index "customers", ["slug"], name: "index_customers_on_slug", unique: true
