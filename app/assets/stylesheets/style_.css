@@ -7,6 +7,10 @@ ul, ol {
 .txtleft{
 	text-align: left !important;
 }
+.link_a:hover{
+	background: none !important;
+	color: #000;
+}
 
 p{
 }
@@ -14,6 +18,7 @@ p{
 
 	color: #fff;
 }
+
 html, body {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 100%;

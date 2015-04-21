@@ -14,4 +14,8 @@ class HomeController < ApplicationController
   def check_account
   	
   end
+
+  def terms
+    
+  end
 end

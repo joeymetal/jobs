@@ -162,16 +162,19 @@
 
         <!--
 
-      --> 
+          --> 
           <%= bootstrap_flash %>
                 <%= yield %>
-                <!-- 
+        <!-- 
 
-              -->
-        <% if user_signed_in? %>
-            <%= render :partial => 'ads/ads' %>
-        <% end %>
+        -->
     </div>
+
+    <% if user_signed_in? %>
+
+           <%= render :partial => 'ads/ads' %>
+    <% end %>
+  </div>
 <hr>
 <!-- Fim content-->
 

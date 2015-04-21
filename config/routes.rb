@@ -12,7 +12,7 @@ Jobs::Application.routes.draw do
   get '/endereco' => 'addresses#new'
   get '/informacao_pessoais' => 'applicants#new'
   get '/perfil_empresa' => 'customers#new'
-
+  get 'termos_de_servico' => 'home#terms'
 
   resources :addresses
   resources :applicant_jobs

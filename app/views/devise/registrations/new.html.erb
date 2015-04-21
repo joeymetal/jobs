@@ -46,12 +46,41 @@
   </div>
   <!--div tipo usuario -->
 
+  
   <div class="actions">
-    <%= f.submit "Registrar-se", :class => 'btn btn-primary' %>
+    <%= f.submit "Registrar-se", :class => 'btn btn-primary', :id => 'commit', :onClick =>'disableBtn()', :disabled => 'true' %>
   </div>
 <% end %>
 
+  <div class="field">
+    <%# f.check_box_tag :ck_permissao, "sim", :id => 'myBtn', :value => 'My Button'  %>
+     <%# f.button_tag :eu_li_e_concordo_com_o, "sim", :onClick =>'disableBtn()'%>
+      <%# f.button_tag :eu_nao_concordo_com_o, "sim", :onClick =>'undisableBtn()'%>
+      <%= link_to "Termos e Política de Privacidade", termos_de_servico_path, :class => 'link_a'%>
+      <button onclick="disableBtn()" id="disable" class="btn btn-success btn-sm">Eu li e concordo</button>
+      <button onclick="undisableBtn()" id="undisable" class="btn btn-danger btn-sm" disabled="false">Eu não concordo</button>
+    <%# label_tag :eu_li_e_concordo_com_o %><br />
+    
+  </div>
+
+    <script type="text/javascript">
+          function disableBtn() {
+            document.getElementById("commit").disabled = false;
+            document.getElementById("disable").disabled = true;
+            document.getElementById("undisable").disabled = false;
+            document.getElementById("myCheck").checked = false;
+        }
+
+          function undisableBtn() {
+            document.getElementById("commit").disabled = true;
+            document.getElementById("disable").disabled = false;
+            document.getElementById("undisable").disabled = true;
+            document.getElementById("myCheck").checked = true;
+        }
+    </script>
+
 <%= render "devise/shared/links" %>
+              </div>
+                    <%= render :partial => 'ads/ads_d' %>
+         </div>
 
-
-         <%= render :partial => 'ads/ads_d' %>
