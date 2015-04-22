@@ -115,72 +115,16 @@
   </div>  <!--fim nav -->  
 </div>
 <!--Fim menu-->
-     <div class=" main">
-          <!--
-
-        -->
-  <% if user_signed_in? %>
-
-  <!-- precisaa ???-->
-
-      <div class="container">
-        <div class="col-xs-6 col-md-3 well">
-          <div class="sidebar-nav">
-            <ul class="nav nav-pills nav-stacked">
-              <li class="nav-header"><strong>Menu</strong></li>
-              <hr>
-              <% if can? :create, Job %>
-                <li><%= link_to "Nova Opotunidade", new_job_path %></li>
-              <% end %>
-              
-              <% if can? :jobs_list, Job %>
-                <li><%= link_to "Minhas vagas postadas", lista_path %></li>
-              <% end %>
-                <% if current_user.try(:admin?) %>
-                    <li><%= link_to "Perfil da empresa", perfil_empresa_path %></li>
-                <% else %>
-                    <% if can? :create, Customer %>
-                      <li><%= link_to "Perfil da empresa", perfil_empresa_path %></li>
-                    <% end %>
-                    <% if can? :create, Applicant %>
-                      <li><%= link_to "Informações pessoais", informacao_pessoais_path %></li>
-                    <% end %>
-                <% end %>
-              <% if can? :create, Profile %>
-                <li><%= link_to "Prefil e Habilidades", perfil_path %></li>
-              <% end %>
-              <% if can? :create, Phone %>
-                <li><%= link_to "Telefones", phones_path %></li>
-              <% end %>
-              <% if can? :create, Address %>
-                <li><%= link_to "Endereço", endereco_path %></li>
-              <% end %>
-            </ul>
-          </div><!--/.well -->
-      </div>
-   <div class="col-xs-6 col-md-6">
-     <% else %>
-     <div class="container">
-        <%= render :partial => 'ads/ads' %>
-        <div class="col-xs-6 col-md-6">
-          <% end %>
+  <div class=" main">
+          <!---->
      
         <!--/span == cols -->
 
-        <!--
-
-          --> 
+        <!----> 
           <%= bootstrap_flash %>
                 <%= yield %>
-        <!-- 
-
-        -->
-    </div>
-
-    <%# if user_signed_in? %>
-
-           <%= render :partial => 'ads/ads' %>
-    <%# end %>
+        <!---->
+    
   </div>
 <hr>
 <!-- Fim content-->
@@ -196,8 +140,6 @@
     </div>
   </div>
 </div>
-
-<%# javascript_include_tag "bootstrap.min.js" %>
-<%# javascript_include_tag "jquery.flexslider.js" %>
+</div>
 </body>
 </html>

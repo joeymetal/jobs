@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   attr_accessor :username, :login
+  #layout :layout_by_resource
   #include SimpleCaptcha::ControllerHelpers
  # before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -28,7 +29,13 @@ class ApplicationController < ActionController::Base
     #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
   end
 
-  
+  def layout_by_resource
+  if resource_name == :home
+    "home"
+  else
+    "application"
+  end
+  end
   # You can put the params you want to permit in the empty array.
   #def configure_sign_up_params
   #   devise_parameter_sanitizer.for(:sign_up) << :attribute
