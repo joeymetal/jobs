@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-  if resource_name == :home
+  if resource_name == :home || resource_name == :contacts
     "home"
   else
     "application"

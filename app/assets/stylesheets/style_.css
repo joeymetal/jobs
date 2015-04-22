@@ -90,6 +90,37 @@ body a {
 	/* background: #fff !important;*/
 	background: none;
 }
+
+
+/* inicio  */
+
+
+ li a:hover{
+	color: #2ABB9B !important;
+	/* background: #fff !important;*/
+	background: none;
+}
+
+.list-group a:hover{
+	color: #2ABB9B !important;
+	/* background: #fff !important;*/
+	
+}
+
+.list-group .list-group-item-success{
+	/* background: #fff !important;*/
+	color: #fff !important;
+	background: #2ABB9B !important;
+}
+.list-group .list-group-item-success:hover{
+	/* background: #fff !important;*/
+	color: #000 !important;
+}
+
+/* fim */
+
+
+
 .toggleMenu {
 	display: none;
 	padding: 4px 5px 0px 5px;
